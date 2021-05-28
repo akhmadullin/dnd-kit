@@ -1,5 +1,16 @@
 # @dnd-kit/modifiers
 
+## 3.0.0
+
+### Minor Changes
+
+- [`68960c4`](https://github.com/clauderic/dnd-kit/commit/68960c490f50962b47a57663ee0625d7704173ec) [#295](https://github.com/clauderic/dnd-kit/pull/295) Thanks [@akhmadullin](https://github.com/akhmadullin)! - `@dnd-kit/core` is now a `peerDependency` rather than a `dependency` for other `@dnd-kit` packages that depend on it, such as `@dnd-kit/sortable` and `@dnd-kit/modifiers`. This is done to avoid issues with multiple versions of `@dnd-kit/core` being installed by some package managers such as Yarn 2.
+
+### Patch Changes
+
+- Updated dependencies [[`0e880e4`](https://github.com/clauderic/dnd-kit/commit/0e880e4dd2ba4c5e8d6add9d4b5834f57dd57e7a)]:
+  - @dnd-kit/core@3.1.0
+
 ## 2.0.0
 
 ### Major Changes
