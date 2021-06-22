@@ -11,8 +11,18 @@ module.exports = {
   webpackFinal: async (config) => {
     config.module.rules = [
       ...config.module.rules.filter(
-        (rule) => !String(rule.test).includes('.css')
-      ),
+        (rule) => !rule.loader?.includes('@storybook/source-loader'),
+      ).filter((rule) => !String(rule.test).includes('.css')),
+      {
+        test: /\.story\.tsx?$/,
+        loaders: [
+          {
+            loader: require.resolve("@storybook/source-loader"),
+            options: { parser: "typescript", injectStoryParameters: false },
+          },
+        ],
+        enforce: "pre",
+      },
       {
         test: /\.module\.css$/,
         use: [
@@ -35,7 +45,6 @@ module.exports = {
         include: path.resolve(__dirname, '../stories'),
       },
     ];
-
     return config;
   },
 };
